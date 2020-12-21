@@ -41,4 +41,16 @@ class StaticAndObjectTest {
 
         assertEquals("Tsai", UtilObjectKotlin.ok())
     }
+
+    @Test
+    fun `test singleton function`() {
+        val util = Util()
+        mockkObject(UtilSingletonKotlin)
+
+        every { UtilSingletonKotlin.ok() } returns "Tsai"
+
+        util.ok()
+
+        assertEquals("Tsai", UtilSingletonKotlin.ok())
+    }
 }
