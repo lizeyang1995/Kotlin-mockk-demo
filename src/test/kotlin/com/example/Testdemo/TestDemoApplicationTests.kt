@@ -21,6 +21,11 @@ class TestDemoApplicationTests {
 
 		assertEquals(30, kid.money)
 		verify {mother.inform(any())}
+
+		verifyOrder {
+			mother.inform(any())
+			mother.giveMoney()
+		}
 	}
 
 }
